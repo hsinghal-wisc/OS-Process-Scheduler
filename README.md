@@ -16,3 +16,6 @@ If no higher priority job arrives and the running process does not relinquish th
 At priorities 0, 1, and 2, after a process consumes its time-slice it should be downgraded one priority. After a time-slice at priority 3, the CPU should be allocated to a new process (i.e., use Round Robin with a 200~ms time-slice cross processes that are all at priority 3).
 If a process voluntarily relinquishes the CPU before its time-slice expires, its time-slice should not be reset; the next time that process is scheduled, it will continue to use the remainder of its existing time-slice.
 After each 1 second interval, if a runnable process has not been scheduled at all in that interval, its priority should be bumped up by one level and given a new time-slice. Note that this 1 second interval is system-wide; at this same point in time, every runnable process is evaluated for starvation
+
+What I did :
+Update the function "scheduler(void)" in proc.c
